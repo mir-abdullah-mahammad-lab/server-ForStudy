@@ -47,6 +47,13 @@ async function run() {
         res.send(result)
 
     })
+    app.post('/add-rooms', async(req,res)=>{
+      const doc = req.body
+      const result = await allRooms.insertOne(doc)
+      res.send(result)
+      console.log(`result owith insertedid: ${result.insertedId}`)
+
+    })
 
 
 
