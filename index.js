@@ -9,7 +9,7 @@ app.use(cors())
 
 //for mongodb
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const uri = 'mongodb+srv://mir_assignment_nine:IIaLK1TwQGuLBvg1@cluster0.yq7n1ku.mongodb.net/?appName=Cluster0'
+
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(process.env.MONGODB_URI, {
