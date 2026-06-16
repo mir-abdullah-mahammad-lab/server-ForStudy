@@ -33,7 +33,13 @@ async function run() {
 
     app.get('/all-rooms', async(req, res)=>{
         const result = await allRooms.find().limit(6).toArray()
-        console.log(result)
+        // console.log(result)
+        res.send(result)
+
+    })
+    app.get('/all-rooms/private', async(req, res)=>{
+        const result = await allRooms.find().toArray()
+        // console.log(result)
         res.send(result)
 
     })
@@ -54,9 +60,6 @@ async function run() {
       console.log(`result owith insertedid: ${result.insertedId}`)
 
     })
-
-
-
 
 
 
