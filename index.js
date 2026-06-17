@@ -26,6 +26,7 @@ async function run() {
     await client.connect();
     const db = client.db('quiet-study')
     const allRooms = db.collection('all-rooms')
+    const timeSlot = db.collection('time-slot-booking')
 
     app.get('/', (req, res) =>{
     res.send('<h1> This is Server Home page </h1>')
@@ -56,6 +57,13 @@ async function run() {
     app.post('/add-rooms', async(req,res)=>{
       const doc = req.body
       const result = await allRooms.insertOne(doc)
+      res.send(result)
+      console.log(`result owith insertedid: ${result.insertedId}`)
+
+    })
+    app.post('/personal-booking', async(req,res)=>{
+      const doc = req.body
+      const result = await timeSlot.insertOne(doc)
       res.send(result)
       console.log(`result owith insertedid: ${result.insertedId}`)
 
